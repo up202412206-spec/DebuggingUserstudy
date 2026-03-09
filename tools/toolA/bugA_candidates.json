@@ -1,0 +1,6 @@
+{
+  "bug_id": "BugA",
+  "candidates": [
+    {"rank": 1, "file": "BugA.java", "line": 5, "suspicion": 0.95}
+  ]
+}
