@@ -1,25 +1,44 @@
 {
-  "name": "Debugging Study",
-  "image": "mcr.microsoft.com/devcontainers/java:17",
+  "name": "Java Maven Codespace",
+  "image": "mcr.microsoft.com/devcontainers/java:1-11",
+
   "features": {
-    "ghcr.io/devcontainers/features/maven:1": {}
+    "ghcr.io/devcontainers/features/java:1": {
+      "version": "none",
+      "installMaven": "true",
+      "installGradle": "false"
+    },
+    "ghcr.io/devcontainers/features/git-lfs:1": {}
   },
+
+  "mounts": [
+    "source=${localWorkspaceFolder}/.m2,target=/root/.m2,type=bind,consistency=cached"
+  ],
+
   "customizations": {
     "vscode": {
       "extensions": [
-        "redhat.java",
+        "vscjava.vscode-java-pack",
         "vscjava.vscode-maven",
-        "vscjava.vscode-java-test",
-        "ms-vscode.makefile-tools"
+        "redhat.java"
       ],
       "settings": {
-        "java.server.launchMode": "Standard",
-        "java.import.gradle.wrapper.checksums": "ignore"
+        "chat.enabled": false,
+        "chat.agent.enabled": false,
+        "chat.commandCenter.enabled": false,
+        "chat.editor.enabled": false,
+        "chat.search.enabled": false,
+        "chat.sidebar.enabled": false,
+        "chat.statusbar.enabled": false,
+        "chat.trial.enabled": false,
+        "github.copilot.chat.enabled": false,
+        "workbench.secondarySideBar.defaultVisibility": "hidden",
+        "workbench.experimental.chat.enabled": false,
+        "workbench.action.chat.open": false
       }
     }
   },
-  "postCreateCommand": "mvn clean compile",
-  "remoteUser": "vscode",
-  "forwardPorts": [],
-  "portsAttributes": {}
+
+  "postCreateCommand": "mvn -q -DskipTests=true clean compile",
+  "postStartCommand": "bash time-tracker.sh"
 }
