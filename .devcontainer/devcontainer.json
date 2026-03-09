@@ -1,0 +1,25 @@
+{
+  "name": "Debugging Study",
+  "image": "mcr.microsoft.com/devcontainers/java:17",
+  "features": {
+    "ghcr.io/devcontainers/features/maven:1": {}
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "redhat.java",
+        "vscjava.vscode-maven",
+        "vscjava.vscode-java-test",
+        "ms-vscode.makefile-tools"
+      ],
+      "settings": {
+        "java.server.launchMode": "Standard",
+        "java.import.gradle.wrapper.checksums": "ignore"
+      }
+    }
+  },
+  "postCreateCommand": "mvn clean compile",
+  "remoteUser": "vscode",
+  "forwardPorts": [],
+  "portsAttributes": {}
+}
