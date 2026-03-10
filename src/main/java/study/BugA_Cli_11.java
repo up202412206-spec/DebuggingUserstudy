@@ -12,13 +12,11 @@ public class BugA_Cli_11 {
             }
         }
         
-        // FAULTY STATEMENT #28: WRONG LOGIC!
+        // FAULTY STATEMENT #28:
         if (fileArg == null || fileArg.isEmpty()) {
-            System.out.println("File: " + fileArg);  // Wrong branch!
-        } else {
             System.err.println("ERROR: Missing file argument");
-            
-        }
+        } else {
+            System.out.println("File: " + fileArg);
  
         // STUDENT FIXED STATEMENT
        /*  
