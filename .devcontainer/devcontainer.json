@@ -40,5 +40,5 @@
   },
 
   "postCreateCommand": "mvn -q -DskipTests=true clean compile",
-  "postStartCommand": "bash time-tracker.sh"
+  "postStartCommand": "bash time.sh"
 }
